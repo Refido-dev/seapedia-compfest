@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Register - SEAPEDIA</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="auth-container">
+    <div class="auth-box">
+      <h2>Daftar SEAPEDIA</h2>
+      <form id="registerForm">
+        <div class="form-group">
+          <label>Username</label>
+          <input type="text" id="username" required>
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" id="password" required>
+        </div>
+        <div class="form-group">
+          <label>Pilih Role (boleh lebih dari 1)</label>
+          <div class="checkbox-group">
+            <label><input type="checkbox" value="Buyer" name="role"> Buyer</label>
+            <label><input type="checkbox" value="Seller" name="role"> Seller</label>
+            <label><input type="checkbox" value="Driver" name="role"> Driver</label>
+          </div>
+        </div>
+        <button type="submit">Daftar</button>
+        <p id="errorMsg" class="error-message"></p>
+      </form>
+      <p class="switch-link">Sudah punya akun? <a href="login.html">Login di sini</a></p>
+    </div>
+  </div>
+
+  <script src="js/auth.js"></script>
+</body>
+</html>
