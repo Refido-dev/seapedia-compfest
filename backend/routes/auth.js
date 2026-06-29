@@ -73,4 +73,42 @@ router.post('/login', (req, res) => {
     res.json({ message: 'Login berhasil', token, roles });
 });
 
+
+// SELECT ACTIVE ROLE
+router.post('/select-role', (req, res) => {
+  const { token, activeRole } = req.body;
+
+  if (!token || !activeRole) {
+    return res.status(400).json({ error: 'Token dan activeRole wajib diisi' });
+  }
+
+  try {
+    // Verifikasi token lama (hasil login)
+    const decoded = jwt.verify(token, JWT_SECRET);
+
+    // Pastikan role yang dipilih memang dimiliki user ini
+    if (!decoded.roles.includes(activeRole)) {
+      return res.status(403).json({ error: 'Role ini bukan milik user' });
+    }
+
+    // Bikin token baru, isinya role aktif yang dipilih
+    const newToken = jwt.sign(
+      {
+        id: decoded.id,
+        username: decoded.username,
+        roles: decoded.roles,      // tetap simpan semua role yang dimiliki
+        activeRole: activeRole      // role yang sedang aktif sesi ini
+      },
+      JWT_SECRET,
+      { expiresIn: '2h' }
+    );
+
+    res.json({ message: 'Role aktif berhasil dipilih', token: newToken, activeRole });
+
+  } catch (err) {
+    res.status(401).json({ error: 'Token tidak valid atau sudah expired' });
+  }
+});
+
+
 module.exports = router;
