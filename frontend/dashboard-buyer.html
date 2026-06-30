@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard Buyer - SEAPEDIA</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="navbar-brand">SEAPEDIA</div>
+    <div class="navbar-links">
+      <span id="userInfo" style="margin-right: 1rem;"></span>
+      <a href="#" onclick="logout()">Logout</a>
+    </div>
+  </nav>
+
+  <section class="dashboard-shell">
+    <h1>Dashboard Buyer</h1>
+    <p>Selamat datang! Ini halaman dashboard untuk role Buyer.</p>
+
+    <div class="dashboard-cards">
+      <div class="dashboard-card">
+        <h3>💰 Saldo Wallet</h3>
+        <p>Rp 0 <span style="font-size: 0.8rem; color: #888;">(fitur wallet di level selanjutnya)</span></p>
+      </div>
+      <div class="dashboard-card">
+        <h3>🛒 Keranjang</h3>
+        <p>0 item <span style="font-size: 0.8rem; color: #888;">(fitur cart di level selanjutnya)</span></p>
+      </div>
+      <div class="dashboard-card">
+        <h3>📦 Riwayat Pesanan</h3>
+        <p>Belum ada pesanan <span style="font-size: 0.8rem; color: #888;">(fitur order di level selanjutnya)</span></p>
+      </div>
+    </div>
+  </section>
+
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

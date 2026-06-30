@@ -71,9 +71,14 @@ if (loginForm) {
       localStorage.setItem('token', data.token);
       localStorage.setItem('roles', JSON.stringify(data.roles));
 
-      alert('Login berhasil!');
-      // Nanti diarahkan ke halaman pilih role aktif (kita bikin setelah ini)
-      window.location.href = 'index.html';
+      if (data.roles.length > 1) {
+        // Punya lebih dari 1 role, harus pilih role aktif dulu
+        window.location.href = 'select-role.html';
+      } else {
+        // Cuma punya 1 role, langsung set sebagai role aktif
+        localStorage.setItem('activeRole', data.roles[0]);
+        window.location.href = `dashboard-${data.roles[0].toLowerCase()}.html`;
+      }
 
     } catch (err) {
       errorMsg.textContent = 'Tidak bisa terhubung ke server';

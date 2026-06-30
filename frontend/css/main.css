@@ -122,3 +122,25 @@
     margin: 0 0.7rem;
   }
 }
+
+.dashboard-shell {
+  padding: 2rem;
+}
+
+.dashboard-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.dashboard-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.dashboard-card h3 {
+  margin-bottom: 0.5rem;
+}
