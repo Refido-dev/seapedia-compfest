@@ -5,6 +5,8 @@ const db = require('./db/database');
 
 const authRoutes = require('./routes/auth');
 
+const reviewRoutes = require('./routes/reviews');
+
 const app = express();
 const PORT = 3000;
 
@@ -18,6 +20,8 @@ app.get('/', (req, res) => {
 });
 
 app.use('/api/auth', authRoutes);
+
+app.use('/api/reviews', reviewRoutes);
 
 // Jalankan server
 app.listen(PORT, () => {
